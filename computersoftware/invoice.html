@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+	<header>
+	<?php
+	$dbUsername = "root";
+    $dbPassword = "";
+    $dbname = "register";
+    //create connection
+    $conn = new mysqli($host, $dbUsername, $dbPassword, $dbname);
+    if (mysqli_connect_error()) 
+	{
+     die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error());
+    } 
+	else 
+	{
+		$query = mysqli_query($conn,"SELECT * FROM computersoftware ORDER BY id DESC LIMT 1 ");
+		$result = mysql_query($query);
+		$rows = mysql_fetch_assoc($result);
+	}	
+	?>
+	</header>
+	<body>
+	<center>
+	<table border=1 width=70%>
+		<caption>
+			<font color='blue' size='8'> Invoice</font>
+		</caption>
+		<br><br>
+
+		<tr>
+			<th>Sl.No</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone no</th>
+			<th>Gender</th>
+			<th>College</th>
+			<th>Course Enrolled</th>
+			<th>Due amount</th>
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			
+			<td>
+				<?php echo $rows["username"]?>
+			</td>
+			<td>
+				<?php echo $rows["email"]?>
+			</td>
+			<td>
+				<?php echo $rows["phoneno"]?>
+			</td>
+			<td>
+				<?php echo $rows["gender"]?>
+			</td>
+			<td>
+				<?php echo $rows["college"]?>
+			</td>
+			<td>
+				<?php echo $rows["course"]?>
+			</td>
+			<td>
+				<?php echo $rows["name"]?>
+			</td>
+		</tr>
+	</table>
+	</center>
+	</body>
+
+	</html>
